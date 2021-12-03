@@ -1,5 +1,6 @@
 import React from 'react'
 import { Navbar, Container, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap'
+import { CartWidget } from '../CartWidget/CartWidget'
 
 export const NavBar = () => {
     return (
@@ -21,13 +22,15 @@ export const NavBar = () => {
                     <NavDropdown.Item href="#action4">Lego´s</NavDropdown.Item>
                     <NavDropdown.Divider />
                     <NavDropdown.Item href="#action5">
-                      Something else here
+                      Estatuas
                     </NavDropdown.Item>
                   </NavDropdown>
                   <Nav.Link href="#">
                     Contacto
                   </Nav.Link>
+                  <CartWidget/>
                 </Nav>
+                
                 <Form className="d-flex">
                   <FormControl
                     type="search"
