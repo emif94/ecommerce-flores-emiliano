@@ -2,7 +2,7 @@ import React from 'react'
 import { Navbar, Container, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap'
 import { CartWidget } from '../CartWidget/CartWidget'
 
-export const NavBar = () => {
+const NavBar = () => {
     return (
         <div>
             <Navbar bg="light" expand="lg">
@@ -48,3 +48,4 @@ export const NavBar = () => {
     )
 }
 
+export default NavBar

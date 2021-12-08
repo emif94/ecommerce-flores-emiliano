@@ -1,7 +1,7 @@
 import React from 'react'
 import {Dropdown, DropdownButton} from 'react-bootstrap'
 
-export const ItemListContainer = (props) => {
+const ItemListContainer = (props) => {
     return (
         <div>
             <DropdownButton id="dropdown-basic-button" title={props.greeting}>
@@ -13,3 +13,4 @@ export const ItemListContainer = (props) => {
         </div>
     )
 }
+export default ItemListContainer
