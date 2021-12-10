@@ -1,15 +1,33 @@
 import React from 'react'
+import {useState , useEffect} from 'react'
 import {Dropdown, DropdownButton} from 'react-bootstrap'
+import {getFetch} from "../helpers/getFetch"
+import ItemList from  "../ItemList/ItemList"
 
-const ItemListContainer = (props) => {
+
+const ItemListContainer = ({greeting}) => {
+    const [productos, setProductos] = useState([])
+    const [loading, setLoading] = useState (true)
+
+    useEffect(() => {
+        getFetch
+        .then (resp => setProductos(resp)) 
+        .catch (err => console.log(err))
+        .finally(()=> setLoading(false))
+    },[])    
+        
+
+
     return (
         <div>
-            <DropdownButton id="dropdown-basic-button" title={props.greeting}>
-            <Dropdown.Item href="#/action-1">Item1</Dropdown.Item>
-            <Dropdown.Item href="#/action-2">Item2</Dropdown.Item>
-            <Dropdown.Item href="#/action-3">Item3</Dropdown.Item>
-            </DropdownButton>
-           
+            {greeting}
+            { loading ? 
+            <h1>Cargando...</h1>
+            :
+            <ItemList productos = {productos} />
+            }
+            
+            
         </div>
     )
 }
