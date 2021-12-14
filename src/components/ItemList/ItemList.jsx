@@ -1,11 +1,12 @@
 import React from 'react'
-import Item from '../Item/Item'
+import ItemDetail from '../ItemDetail/ItemDetail'
 
 
 function ItemList  ({productos}) {
     return (
         <>
-            {productos.map((prod)=> <Item prod = {prod} />)}
+            {productos.map((prod)=> <ItemDetail prod = {prod} />)}
+            {console.log (productos)}
         </>
     )
 }

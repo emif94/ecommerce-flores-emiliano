@@ -5,7 +5,7 @@ import {getFetch} from "../helpers/getFetch"
 import ItemList from  "../ItemList/ItemList"
 
 
-const ItemListContainer = ({greeting}) => {
+const ItemDetailContainer = ({greeting}) => {
     const [productos, setProductos] = useState([])
     const [loading, setLoading] = useState (true)
 
@@ -31,4 +31,4 @@ const ItemListContainer = ({greeting}) => {
         </div>
     )
 }
-export default ItemListContainer
+export default ItemDetailContainer

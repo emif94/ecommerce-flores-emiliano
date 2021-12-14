@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Item ({prod}) {
+function ItemDetail ({prod}) {
     return (
         <div
             key = {prod.id}
@@ -10,7 +10,9 @@ function Item ({prod}) {
                 
                 <h1> {` ${prod.name} - ${prod.categoria} `}</h1>
                 <h2>{prod.precio}</h2>
-                <button>Detalles</button>
+                <h2>{prod.detail}</h2>
+                
+                <img src={prod.foto}/>
                 
             </div>
             
@@ -18,4 +20,4 @@ function Item ({prod}) {
     )
 }
 
-export default Item
+export default ItemDetail

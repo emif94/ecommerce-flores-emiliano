@@ -1,6 +1,7 @@
-import  ItemListContainer  from './components/ItemListContainer/ItemListContainer';
+import  ItemDetailContainer  from './components/ItemDetailContainer/ItemDetailContainer';
 import  NavBar  from './components/NavBar/NavBar';
 import  ItemCounter  from './components/ItemCounter/ItemCounter';
+
 
 
 const App = () =>{
@@ -14,8 +15,9 @@ const App = () =>{
       <header className="App-header">
         <NavBar/>
       </header>
-      <ItemListContainer greeting='Item List Container'/>
+      <ItemDetailContainer greeting='Item Detail Container'/>
       <ItemCounter startValue={startValue} max={max}/>
+  
 
     </div>
   );
