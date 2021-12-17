@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 import { Navbar, Container, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap'
 import { CartWidget } from '../CartWidget/CartWidget'
 
@@ -7,7 +8,7 @@ const NavBar = () => {
         <div>
             <Navbar bg="light" expand="lg">
             <Container fluid>
-              <Navbar.Brand href="#">Hero Collectibles</Navbar.Brand>
+              <Link to='/'>Hero Collectibles</Link>
               <Navbar.Toggle aria-controls="navbarScroll" />
               <Navbar.Collapse id="navbarScroll">
                 <Nav
@@ -18,15 +19,12 @@ const NavBar = () => {
                   <Nav.Link href="#action1">Inicio</Nav.Link>
                   <Nav.Link href="#action2">Nuevos</Nav.Link>
                   <NavDropdown title="Categorías" id="navbarScrollingDropdown">
-                    <NavDropdown.Item href="#action3">Figuras de Acción</NavDropdown.Item>
-                    <NavDropdown.Item href="#action4">Lego´s</NavDropdown.Item>
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item href="#action5">
-                      Estatuas
-                    </NavDropdown.Item>
+                    <NavDropdown.Item><Link to="categoria/figuras">Figuras de Acción</Link></NavDropdown.Item>
+                    <NavDropdown.Item><Link to="categoria/lego">Lego</Link></NavDropdown.Item>
+                    <NavDropdown.Item><Link to="categoria/estatuas">Estatuas</Link></NavDropdown.Item>
                   </NavDropdown>
-                  <Nav.Link href="#">
-                    Contacto
+                  <Nav.Link >
+                    <Link to="contacto">Contacto</Link>
                   </Nav.Link>
                   <CartWidget/>
                 </Nav>
