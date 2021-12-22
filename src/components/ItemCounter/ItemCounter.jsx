@@ -1,14 +1,13 @@
 import React, {useState} from 'react'
 
- const ItemCounter = ({ max, startValue }) => {
+ const ItemCounter = ({ stock, onAdd }) => {
+     const [value, setValue] = useState (1)
 
- 
-     const [value, setValue] = useState (startValue)
      const handleAgregar =()=>{
-       value < max ? setValue(value+1) : alert ("No podés comprar más unidades")
+       value !== stock && setValue(value+1);
      }
      const handleQuitar =()=>{
-       value > startValue ? setValue(value-1) : alert ("Debes llevar al menos 1 producto")
+       value !== 0 &&  setValue(value-1);
      }   
      
 
@@ -18,9 +17,11 @@ import React, {useState} from 'react'
             <button onClick = {handleAgregar}>+</button>
             <span>{value}</span>
             <button onClick = {handleQuitar}>-</button>
+            <button onClick = {()=>onAdd(value)}>Agregar al Carrito</button>
             
         </div>
     )
 }
 
 export default ItemCounter
+

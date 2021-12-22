@@ -3,6 +3,7 @@ import  ItemListContainer  from './components/ItemListContainer/ItemListContaine
 import  NavBar  from './components/NavBar/NavBar';
 import  ItemCounter  from './components/ItemCounter/ItemCounter';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
+import Cart from './components/Cart/Cart';
 
 
 const App = () =>{
@@ -40,8 +41,14 @@ const App = () =>{
             path="/detalles/:id"
             element={<ItemDetailContainer/>} 
           />
+
+         <Route 
+            exact
+            path="/cart"
+            element={<Cart/>} 
+          />
       
-          
+       
         </Routes>
         
 

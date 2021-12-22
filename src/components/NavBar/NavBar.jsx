@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 import { Navbar, Container, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap'
 import { CartWidget } from '../CartWidget/CartWidget'
 
+
 const NavBar = () => {
     return (
         <div>
@@ -26,7 +27,10 @@ const NavBar = () => {
                   <Nav.Link >
                     <Link to="contacto">Contacto</Link>
                   </Nav.Link>
-                  <CartWidget/>
+                  <Nav.Link >
+                    <Link to= '/cart'><CartWidget/></Link>
+                  </Nav.Link>
+                  
                 </Nav>
                 
                 <Form className="d-flex">
