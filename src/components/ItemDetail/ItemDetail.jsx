@@ -3,6 +3,8 @@ import ItemCounter from '../ItemCounter/ItemCounter'
 import {useState} from 'react'
 import {Link} from 'react-router-dom'
 import { CartWidget } from '../CartWidget/CartWidget'
+import { useCartContext } from '../../context/CartContext'
+//import { CartContext } from '../../context/CartContext'
 
 
 
@@ -10,11 +12,14 @@ const ItemDetail = ({productos}) => {
 
     const [irCart, setIrCart] = useState ('comprando');
 
+    const {cartList, agregarCarrito} = useCartContext()
+
     const onAdd = (cantidad) => {
         console.log (cantidad)
         setIrCart ('irCarrito')
+        agregarCarrito({...productos, cant:cantidad})
     }
-
+        console.log (cartList)
     return (
         <div>
 
