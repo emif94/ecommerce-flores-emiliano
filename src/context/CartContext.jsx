@@ -21,18 +21,21 @@ function CartContextProvider({children}) {
    function agregarCarrito(productos) {
 
        
+       const product = cartList.find((item) => item.id === productos.id);
 
-       const index = cartList.findIndex(i => i.id === productos.id)
+       if (!product){
+           setCartList([...cartList, productos]);
 
-       if (index > -1){
-           const cantPrevia = cartList[index]//.cant
-           cartList.splice(index, 1)
+       } else{
+            
+            setCartList([...cartList.slice(1), {...productos, cant: product.cant + productos.cant}])
 
-           setCartList([...cartList, {...productos//.cant:cant
-            + cantPrevia}])
-       }else {
-           setCartList([...cartList, productos])
        }
+           
+       
+         
+       
+       
        
    }
 
