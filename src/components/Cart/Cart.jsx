@@ -2,26 +2,29 @@
 //import { CartContext } from '../../context/CartContext'
 
 import { useCartContext } from "../../context/CartContext"
+import {Link} from 'react-router-dom'
 
 function Cart()  {
 
-    const {cartList, borrarCarrito}= useCartContext()
-    let res = [0]
+    const {cartList, borrarCarrito, eliminarUnProducto}= useCartContext()
+    let totalCarrito = [0]
+    
+    console.log(cartList)
 
-    const total = [0]
-   // const sumarTotalCarrito = (cartList) =>{
-    //    for (const totalProd of cartList){
-    //       total.push(totalProd.precio) 
-    //    }
-    //    console.log(total)
-   // }
+
 function sumarTotalCarrito(){
-     res = cartList.reduce ((acc,item)=>{
+     totalCarrito = cartList.reduce ((acc,item)=>{
        return acc += (item.precio * item.cant)
    },0)
-   console.log(res)
+   console.log(totalCarrito)
 
 }
+
+ 
+
+
+
+
    
     return (
         <div>
@@ -31,6 +34,7 @@ function sumarTotalCarrito(){
                 <h1>{`Producto:${prod.name}`}</h1>
                     <h2>{`Cantidad:${prod.cant}`}</h2>
                     <h2>{`Precio:${prod.precio}`}</h2>
+                    <button id={`${prod.id}`}onClick={eliminarUnProducto}>Eliminar</button>
 
                 
             </div>)}
@@ -38,7 +42,15 @@ function sumarTotalCarrito(){
             <button onClick={borrarCarrito}>Eliminar productos del carrito</button>
 
             {sumarTotalCarrito()}
-            <h2>Total : {`${res}`}</h2>
+
+            <h2>{cartList.length === 0 ?
+              <div>
+                  <h1>Su carrito está vacío</h1>
+                  <button ><Link to='/'>Mirá nuestros productos!</Link></button>
+              </div> 
+              :   
+              `Total :${totalCarrito}` }</h2>
+              
         </div>
     )
 }

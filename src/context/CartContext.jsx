@@ -11,6 +11,8 @@ const CartContext = createContext([])
 
 function CartContextProvider({children}) {
     const [cartList, setCartList] = useState([])
+    
+   
 
    // function agregarCarrito(productos) {
 
@@ -30,25 +32,51 @@ function CartContextProvider({children}) {
             
             setCartList([...cartList.slice(1), {...productos, cant: product.cant + productos.cant}])
 
-       }
-           
-       
-         
-       
-       
-       
+       }   
+
    }
+
+
 
     function borrarCarrito (){
         setCartList([])
+
     }
+
+
+    function eliminarUnProducto(e){
+        console.log (e.target.id);
+        let productoABorrar = cartList.findIndex(item => item.id ==e.target.id);
+        cartList.splice(productoABorrar, 1);
+        
+        setCartList([...cartList])
+
+    }
+
+
+   // function cantItemsCartFx(){
+    // cantItemsCart = cartList.reduce ((acc,item)=>{
+    //   return acc += (item.cant)
+  // },0)
+  // console.log(cantItemsCart)
+
+  //  }
+
+
+  
+        
+
+   
 
 
     return (
         <CartContext.Provider value={{
             cartList,
             agregarCarrito,
-            borrarCarrito
+            borrarCarrito,
+            eliminarUnProducto,
+          //  cantItemsCartFx,
+            
             
             }}>
             {children}
