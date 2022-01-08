@@ -31,7 +31,7 @@ function sumarTotalCarrito(){
             {cartList.map(prod=> 
 
             <div>
-                <h1>{`Producto:${prod.name}`}</h1>
+                <h1>{`Producto:${prod.nombre}`}</h1>
                     <h2>{`Cantidad:${prod.cant}`}</h2>
                     <h2>{`Precio:${prod.precio}`}</h2>
                     <button id={`${prod.id}`}onClick={eliminarUnProducto}>Eliminar</button>

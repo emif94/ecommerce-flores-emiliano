@@ -1,27 +1,32 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import {useState , useEffect} from 'react'
-import {getFetch} from "../helpers/getFetch"
 import ItemDetail from "../ItemDetail/ItemDetail";
+import {doc, getDoc, getFirestore} from 'firebase/firestore'
+
 
 const ItemDetailContainer = () => {
-    const [productos, setProductos] = useState([])
+    const [productos, setProducto] = useState([])
 
      const {id} = useParams ()
 
+     
+
     useEffect(() => {
-        getFetch
-        .then (resp => setProductos(resp.find(prod => prod.id === parseInt(id)))) 
-        .catch (err => console.log(err))
-    }, [id])   
+         const dbDetail = getFirestore()
+         const queryDbDetail = doc (dbDetail, 'productos', id )
+         getDoc (queryDbDetail)
+         .then (resp => setProducto ({id: resp.id, ...resp.data()}))
+    },[id])
         
 
     return (
         <div>
-            <h2>Item Detail Container </h2>
+            
             
             
             <h2><ItemDetail productos = {productos} /></h2>
+        
             
         </div>
     )

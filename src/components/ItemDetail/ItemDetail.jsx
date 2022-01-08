@@ -2,8 +2,10 @@ import React from 'react'
 import ItemCounter from '../ItemCounter/ItemCounter'
 import {useState} from 'react'
 import {Link} from 'react-router-dom'
-import { CartWidget } from '../CartWidget/CartWidget'
+
 import { useCartContext } from '../../context/CartContext'
+import { Card, Button, Container,Row,Col} from 'react-bootstrap'
+import { CartWidget } from '../CartWidget/CartWidget'
 //import { CartContext } from '../../context/CartContext'
 
 
@@ -21,21 +23,66 @@ const ItemDetail = ({productos}) => {
     }
         console.log (cartList)
     return (
-        <div>
+        <div className='fondo'>
 
-            <h2>{`${productos.name}`}</h2>
-            
-            <img src={productos.foto}/>
+            {/*<Card style={{ width: '18rem' }}>
+                <Card.Img variant="top" src={productos.foto} />
+                <Card.Body>
+                    <Card.Title>{`${productos.nombre}`}</Card.Title>
+                    <Card.Text>
+                    {`${productos.detalles}`}
+                    </Card.Text>
+                    <Card.Text>
+                    {`$${productos.precio}`}
+                    </Card.Text>
+                    
+                    <Button variant="primary"><Link to= '/cart'><CartWidget/></Link></Button>
+                </Card.Body>
+    </Card>*/}
 
-            <h2>{`${productos.precio}`}</h2>
+            <Container>
+                <Row className='alinearItemDetail'>
+                    <Col md={3}>
 
-            <h5>{`${productos.detalles}`}</h5>
+                    <Card style={{ width: '25rem' }}>
+                        <Card.Img variant="top" src={productos.foto} />
+                        <Card.Body>
+                            <Card.Text>
+                            {`No pierdas la oportunidad de adquirir este increíble colecionable de ${productos.nombre}`}
+                            </Card.Text>
+                            <Button variant="primary"><Link to='/' className='textoBlanco'>Mirá nuestros productos!</Link></Button>
+                        </Card.Body>
+                    </Card>
 
-            {irCart === 'comprando' ?
-                (<ItemCounter stock = {productos.stock} onAdd = {onAdd}/>)
-            : 
-            (<button><Link to= '/cart'><CartWidget/></Link></button>)
-            }
+
+
+
+                    </Col>
+
+                    <Col md={6}>
+
+                        <h1 className='textoBlanco'>{`${productos.nombre}`}</h1>
+                        <h3 className='textoBlanco'>{`$${productos.precio}`}</h3>
+                        <h4 className='textoBlanco'>{`${productos.detalles}`}</h4>
+                        <h5 className='textoBlanco'>{`Tipo de coleccionable: ${productos.categoria}`}</h5>
+
+                    </Col>
+
+                    <Col>
+                        <h4 className='textoBlanco'>{`${productos.stock} unidades disponibles` }</h4>
+                        {irCart === 'comprando' ?
+                            (<ItemCounter stock = {productos.stock} onAdd = {onAdd}/>)
+                        : 
+                        (<Button variant="primary"><Link to= '/cart'><CartWidget/></Link></Button>)
+                        }
+
+                    </Col>
+                </Row>
+               
+            </Container>
+
+
+
 
 
             

@@ -1,0 +1,96 @@
+/*FONDOS---------------------------------------------------->*/
+
+.fondo {
+
+
+  background-image: url(img/fondo4.jpg);
+
+  background-attachment: fixed;
+
+  background-position: center;
+
+  background-repeat: no-repeat;
+
+  background-size: cover;
+
+  padding: 50px 30px;
+
+  margin-bottom:0px;
+}
+
+/*ESTILOS TEXTOS------------------------------------------->*/
+
+
+.textoBlanco{
+
+    text-decoration: none;
+    color:white;
+}
+
+.textoNavBar{
+    color:white;
+    font-size: 18px;
+}
+
+.textoLogo{
+    color:white;
+    font-size: 35px;
+    text-decoration: none;
+    font-family: 'Teko';
+
+}
+
+/*MARGENES------------------------------------------------->*/
+
+.MT1{
+    margin-top:20px;
+}
+
+.MT2{
+    margin-top:40px;
+}
+
+.MT3{
+    margin-top:60px;
+}
+
+.MT4{
+    margin-top:80px;
+}
+
+.MT5{
+    margin-top:100px;
+}
+
+.MB1{
+    margin-bottom:20px;
+}
+
+.MB2{
+    margin-bottom:40px;
+}
+
+.MB3{
+    margin-bottom:60px;
+}
+
+.MB4{
+    margin-bottom:80px;
+}
+
+.MB5{
+    margin-bottom:100px;
+}
+
+/*NAVBAR------------------------------------------>*/
+
+.gradienteNavBar{
+    background-image:linear-gradient(to right,transparent, transparent, transparent,#C6A016, #7C4D03,black);
+}
+
+/*ITEMDETAIL FLEXBOX----------------------------->*/
+
+.alinearItemDetail{
+    display: flex;
+    align-items: center;
+}
