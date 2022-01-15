@@ -35,7 +35,7 @@ const ItemListContainer = ({greeting}) => {
             const dbCate = getFirestore()
             const queryCollectionCate = query(collection (dbCate, 'productos' ), where("categoria","==",idCategoria))
             getDocs(queryCollectionCate)
-            .then (resp => setProductos(resp.docs.map(prod => ({...prod.data()})))) 
+            .then (resp => setProductos(resp.docs.map(prod => ({id: prod.id,...prod.data()})))) 
             
             .catch (err => console.log(err))
             .finally(()=> setLoading(false))

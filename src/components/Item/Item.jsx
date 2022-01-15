@@ -19,10 +19,13 @@ function Item ({prod}) {
                         <Card.Text>
                         {prod.categoria}
                         </Card.Text>
-                        <Button variant="primary"><Link to= {`detalles/${prod.id}`} className = "textoBlanco">Detalles</Link></Button>
+                        <Button variant="primary">
+                            <Link to= {`/detalles/${prod.id}`} className = "textoBlanco">Detalles</Link>
+                        </Button>
                     </Card.Body>
                     
                 </Card>
+                
               
                 
                 

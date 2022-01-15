@@ -44,10 +44,10 @@ function Cart()  {
 
 
 function sumarTotalCarrito(){
-     totalCarrito = cartList.reduce ((acc,item)=>{
+     return cartList.reduce ((acc,item)=>{
        return acc += (item.precio * item.cant)
    },0)
-   console.log(totalCarrito)
+   //console.log(totalCarrito)
    console.log(cartList)
 
 }
@@ -74,7 +74,7 @@ function sumarTotalCarrito(){
              
             <button onClick={borrarCarrito}>Eliminar productos del carrito</button>
 
-            {sumarTotalCarrito()}
+            
 
             <h2>{cartList.length === 0 ?
               <div>
@@ -82,7 +82,7 @@ function sumarTotalCarrito(){
                   <button ><Link to='/'>Mirá nuestros productos!</Link></button>
               </div> 
               :   
-              `Total :${totalCarrito}` }</h2>
+              `Total :${sumarTotalCarrito()}` }</h2>
 
               <div>
             {idOrden.length !== 0 && idOrden}
