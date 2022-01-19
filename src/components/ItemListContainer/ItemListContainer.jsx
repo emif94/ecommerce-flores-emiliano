@@ -77,7 +77,14 @@ const ItemListContainer = ({greeting}) => {
         <div  className ="fondo">
             {greeting}
             { loading ? 
-            <h1>Cargando...</h1>
+
+            <div>
+                
+                <img style={{ maxHeight: '50px'}} src="../loading.gif"/>
+                <h1 className='textoItemDetail textoBlanco'>Cargando...</h1>
+            </div>
+            
+            
             :
             <ItemList productos = {productos} />
             }

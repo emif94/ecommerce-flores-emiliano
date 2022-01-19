@@ -7,6 +7,7 @@ import { useCartContext } from '../../context/CartContext'
 import { Card, Button, Container,Row,Col} from 'react-bootstrap'
 import { CartWidget } from '../CartWidget/CartWidget'
 //import { CartContext } from '../../context/CartContext'
+import '../../styles/styles.css'
 
 
 
@@ -40,17 +41,17 @@ const ItemDetail = ({productos}) => {
                 </Card.Body>
     </Card>*/}
 
-            <Container>
+            <Container fluid>
                 <Row className='alinearItemDetail'>
-                    <Col md={3}>
+                    <Col md={4}>
 
-                    <Card style={{ width: '25rem' }}>
+                    <Card style={{ width: '25rem' }} bg='' className='fondo'>
                         <Card.Img variant="top" src={productos.foto} />
-                        <Card.Body>
-                            <Card.Text>
+                        <Card.Body className='fondoInfoDetail'>
+                            <Card.Text className='textoBlanco textoItemDetail' >
                             {`No pierdas la oportunidad de adquirir este increíble colecionable de ${productos.nombre}`}
                             </Card.Text>
-                            <Button variant="primary"><Link to='/' className='textoBlanco'>Mirá nuestros productos!</Link></Button>
+                            <Button variant="outline-light"><Link to='/' className='textoBlanco'>Mirá nuestros productos!</Link></Button>
                         </Card.Body>
                     </Card>
 
@@ -59,24 +60,24 @@ const ItemDetail = ({productos}) => {
 
                     </Col>
 
-                    <Col md={6}>
+                    <Col md={4} className='fondoInfoDetail'>
 
-                        <h1 className='textoBlanco'>{`${productos.nombre}`}</h1>
-                        <h3 className='textoBlanco'>{`$${productos.precio}`}</h3>
-                        <h4 className='textoBlanco'>{`${productos.detalles}`}</h4>
-                        <h5 className='textoBlanco'>{`Tipo de coleccionable: ${productos.categoria}`}</h5>
+                        <h1 className='textoBlanco textoItemDetail'>{`${productos.nombre}`}</h1>
+                        <h3 className='textoBlanco textoItemDetail'>{`$${productos.precio}`}</h3>
+                        <h4 className='textoBlanco textoItemDetail'>{`${productos.detalles}`}</h4>
+                        <h5 className='textoBlanco textoItemDetail'>{`Tipo de coleccionable: ${productos.categoria}`}</h5>
 
                     </Col>
 
-                    <Col>
-                        <h4 className='textoBlanco'>{`${productos.stock} unidades disponibles` }</h4>
+                    <Col md={3} className='fondoInfoDetail'>
+                        <h4 className='textoBlanco textoItemDetail'>{`${productos.stock} unidades disponibles` }</h4>
                         {irCart === 'comprando' ?
                             (<ItemCounter stock = {productos.stock} onAdd = {onAdd}/>)
                         : 
-                        (<Button variant="primary"><Link to= '/cart'><CartWidget/></Link></Button>)
+                        (<Button variant="outline-light"><Link to= '/cart'><CartWidget/></Link></Button>)
                         }
 
-                    </Col>
+                    </Col >
                 </Row>
                
             </Container>

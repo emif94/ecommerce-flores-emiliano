@@ -18,12 +18,12 @@ import {Button} from 'react-bootstrap'
             
             
             <div>
-              <Button variant="primary" onClick = {handleAgregar}>+</Button>            
-              <span>{ `  ${value}  ` }</span>
-              <Button variant="primary" onClick = {handleQuitar}>-</Button>
+              <Button variant="outline-light" onClick = {handleAgregar}>+</Button>            
+              <span className='textoBlanco textoItemDetail'>{ `  ${value}  ` }</span>
+              <Button variant="outline-light" onClick = {handleQuitar}>-</Button>
             </div>
             
-            <Button variant="primary" onClick = {()=>onAdd(value)}>Agregar al Carrito</Button>
+            <Button variant="outline-light" onClick = {()=>onAdd(value)}>Agregar al Carrito</Button>
             
         </div>
     )

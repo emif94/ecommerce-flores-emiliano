@@ -26,7 +26,7 @@ const App = () =>{
             <Route 
               exact
               path="/"
-              element={<ItemListContainer greeting='Item List Container'/>} 
+              element={<ItemListContainer greeting=''/>} 
             />
             <Route 
               exact
@@ -36,7 +36,7 @@ const App = () =>{
             <Route 
               exact
               path="/categoria/:idCategoria"
-              element={<ItemListContainer greeting='Item List Container'/>} 
+              element={<ItemListContainer greeting=''/>} 
             />
             <Route 
               exact
