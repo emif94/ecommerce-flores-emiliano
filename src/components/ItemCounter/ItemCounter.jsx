@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import {Button} from 'react-bootstrap'
+import '../../styles/styles.css'
 
 
  const ItemCounter = ({ stock, onAdd }) => {
@@ -19,7 +20,7 @@ import {Button} from 'react-bootstrap'
             
             <div>
               <Button variant="outline-light" onClick = {handleAgregar}>+</Button>            
-              <span className='textoBlanco textoItemDetail'>{ `  ${value}  ` }</span>
+              <span className='textoBlanco textoTeko35'>{ `  ${value}  ` }</span>
               <Button variant="outline-light" onClick = {handleQuitar}>-</Button>
             </div>
             

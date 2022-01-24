@@ -15,7 +15,8 @@
 
   padding: 50px 30px;
 
-  margin-bottom:0px;
+  margin-bottom:0px; 
+  
 }
 
 .fondoInfoDetail{
@@ -28,19 +29,35 @@
 }
 
 /*ESTILOS TEXTOS------------------------------------------->*/
-.textoItemDetail {
+.textoTeko35 {
 
     font-size: 35px;
     font-family: 'Teko';
-    
+}
 
+.textoTeko30 {
+
+    font-size: 30px;
+    font-family: 'Teko';
+}
+
+.textoTeko45 {
+
+    font-size: 45px;
+    font-family: 'Teko';
+}
+.textoTeko55 {
+
+    font-size: 45px;
+    font-family: 'Teko';
 }
 
 .textoBlanco{
 
-    text-decoration: none;
+    text-decoration: none !important;
     color:white;
 }
+
 
 .textoNavBar{
     color:white;
@@ -52,10 +69,21 @@
     font-size: 35px;
     text-decoration: none;
     font-family: 'Teko';
+    margin-left: 10px;
 
 }
 
-/*MARGENES------------------------------------------------->*/
+/*MARGENES Y PADDINGS-------------------------------------->*/
+
+.M0{
+    margin:0px;
+}
+.M1{
+    margin:20px;
+}
+.MT0{
+    margin-top:0px;
+}
 
 .MT1{
     margin-top:20px;
@@ -97,9 +125,59 @@
     margin-bottom:100px;
 }
 
-/*NAVBAR------------------------------------------>*/
+.MB10{
+    margin-bottom:200px;
+}
 
-/*NAV------------->*/
+.MB15{
+    margin-bottom:300px;
+}
+
+.MB18{
+    margin-bottom:360px;
+}
+
+.P0{
+    padding: 0px;
+}
+.P1{
+    padding: 20px;
+}
+
+.PT0{
+    padding-top: 0px;
+}
+
+.PT1{
+    padding-top: 20px;
+}
+.PT6{
+    padding-top: 100px;
+}
+
+.PB3{
+    padding-bottom:60px;
+} 
+
+.PB5{
+    padding-bottom:100px;
+}
+
+.PB7{
+    padding-bottom:140px;
+}
+
+.PB13{
+    padding-bottom:260px;
+}
+.PB15{
+    padding-bottom:500px;
+}
+
+
+/*NAVBAR--------------------------------------------------->*/
+
+/*NAV----------------------->*/
 
 .textoNav{
     color: white;
@@ -115,15 +193,69 @@
     font-size: 25px;
     text-decoration: none;
     font-family: 'Teko';
+    
 }
 
+.altoNav{
+    max-height: 100px;
+}
 
 /*NAV-----------<<<*/
 
+.logoNavBar{
+    max-height: 60px;
+    margin-top:10px;
+    margin-left:10px;
+    background-color:transparent;
+    filter: invert(100%);
+}
 
-/*ITEMDETAIL FLEXBOX----------------------------->*/
+/*CART----------------------------------------------------->*/
+
+.anchoTablaCart{
+    max-width: 800px;
+}
+/*CARTWIDGET------------------>*/
+
+.transicionCartWidget {
+  transition: all 1s; }
+
+.transicionCartWidget:hover {
+  transform: scale(1.2, 1.2); }  
+
+/*ITEMDETAIL------------------------------------------------>*/
+
+/*FLEXBOX-------------------->*/
 
 .alinearItemDetail{
     display: flex;
     align-items: center;
+}
+
+.lupa{
+    max-height: 200px;
+    border-radius:100px;
+}
+
+/*ITEM----------------------------------------------------->*/
+
+.anchoCard{
+    width: 25rem
+}
+.altoFotoCard{
+    max-height: 300px;
+}
+
+/*ANIMACIONES----------------------------------------------->*/
+
+.animatedhover {
+    animation-play-state: paused;
+}
+
+/*ANIMACIONES---------------------------------------------->*/
+.altoCartWidget{
+    max-height: 30px;
+}
+.altoLoading{
+    max-height: 50px;
 }

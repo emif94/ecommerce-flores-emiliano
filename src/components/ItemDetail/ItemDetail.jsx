@@ -24,7 +24,7 @@ const ItemDetail = ({productos}) => {
     }
         console.log (cartList)
     return (
-        <div className='fondo'>
+        <div className='fondo PT0'>
 
             {/*<Card style={{ width: '18rem' }}>
                 <Card.Img variant="top" src={productos.foto} />
@@ -45,13 +45,13 @@ const ItemDetail = ({productos}) => {
                 <Row className='alinearItemDetail'>
                     <Col md={4}>
 
-                    <Card style={{ width: '25rem' }} bg='' className='fondo'>
-                        <Card.Img variant="top" src={productos.foto} />
+                    <Card  bg='' className='fondo anchoCard'>
+                        <Card.Img variant="top" className='altoFotoCard' src={productos.foto} />
                         <Card.Body className='fondoInfoDetail'>
-                            <Card.Text className='textoBlanco textoItemDetail' >
+                            <Card.Text className='textoBlanco textoTeko30' >
                             {`No pierdas la oportunidad de adquirir este increíble colecionable de ${productos.nombre}`}
                             </Card.Text>
-                            <Button variant="outline-light"><Link to='/' className='textoBlanco'>Mirá nuestros productos!</Link></Button>
+                            <Button variant="outline-light"><Link to='/' className='textoBlanco'>Más coleccionables...</Link></Button>
                         </Card.Body>
                     </Card>
 
@@ -62,19 +62,19 @@ const ItemDetail = ({productos}) => {
 
                     <Col md={4} className='fondoInfoDetail'>
 
-                        <h1 className='textoBlanco textoItemDetail'>{`${productos.nombre}`}</h1>
-                        <h3 className='textoBlanco textoItemDetail'>{`$${productos.precio}`}</h3>
-                        <h4 className='textoBlanco textoItemDetail'>{`${productos.detalles}`}</h4>
-                        <h5 className='textoBlanco textoItemDetail'>{`Tipo de coleccionable: ${productos.categoria}`}</h5>
+                        <h1 className='textoBlanco textoTeko35'>{`${productos.nombre}`}</h1>
+                        <h3 className='textoBlanco textoTeko35'>{`$${productos.precio}`}</h3>
+                        <h4 className='textoBlanco textoTeko30'>{`${productos.detalles}`}</h4>
+                        <h5 className='textoBlanco textoTeko30'>{`Tipo de coleccionable: ${productos.categoria.toUpperCase()}`}</h5>
 
                     </Col>
 
                     <Col md={3} className='fondoInfoDetail'>
-                        <h4 className='textoBlanco textoItemDetail'>{`${productos.stock} unidades disponibles` }</h4>
+                        <h4 className='textoBlanco textoTeko35'>{`${productos.stock} unidades disponibles` }</h4>
                         {irCart === 'comprando' ?
                             (<ItemCounter stock = {productos.stock} onAdd = {onAdd}/>)
                         : 
-                        (<Button variant="outline-light"><Link to= '/cart'><CartWidget/></Link></Button>)
+                        (<Button variant="outline-light"><Link to= '/cart' className='textoBlanco'><CartWidget/></Link></Button>)
                         }
 
                     </Col >

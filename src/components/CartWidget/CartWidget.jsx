@@ -1,5 +1,7 @@
 import React from 'react'
 import { useCartContext } from "../../context/CartContext"
+import 'animate.css';
+import '../../styles/styles.css'
 
 export const CartWidget = () => {
     let cantItemsCart = [0]
@@ -13,14 +15,14 @@ export const CartWidget = () => {
 
     }
     return (
-        <div>
-            <img src='../cartA.png'  style={{ maxHeight: '30px',}}/>
+        <div >
+            <img src='../cartA.png'   className=' altoCartWidget transicionCartWidget'/>
             
 
             {cantItemsCartFx()}
             
 
-              <span>{cantItemsCart === 0 ? 
+              <span >{cantItemsCart === 0 ? 
 
                 <span>
                     

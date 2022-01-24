@@ -54,6 +54,15 @@ function CartContextProvider({children}) {
     }
 
 
+    function sumarTotalCarrito(){
+     return cartList.reduce ((acc,item)=>{
+       return acc += (item.precio * item.cant)
+   },0)
+   //console.log(totalCarrito)
+   console.log(cartList)
+
+}
+
    // function cantItemsCartFx(){
     // cantItemsCart = cartList.reduce ((acc,item)=>{
     //   return acc += (item.cant)
@@ -75,6 +84,7 @@ function CartContextProvider({children}) {
             agregarCarrito,
             borrarCarrito,
             eliminarUnProducto,
+            sumarTotalCarrito, 
           //  cantItemsCartFx,
             
             

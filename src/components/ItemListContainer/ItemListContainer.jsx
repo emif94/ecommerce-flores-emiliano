@@ -36,8 +36,6 @@ const ItemListContainer = ({greeting}) => {
             const queryCollectionCate = query(collection (dbCate, 'productos' ), where("categoria","==",idCategoria))
             getDocs(queryCollectionCate)
             .then (resp => setProductos(resp.docs.map(prod => ({id: prod.id,...prod.data()})))) 
-            
-            .catch (err => console.log(err))
             .finally(()=> setLoading(false))
             
 
@@ -74,14 +72,14 @@ const ItemListContainer = ({greeting}) => {
 
 
     return (
-        <div  className ="fondo">
+        <div  className ="fondo PT1">
             {greeting}
             { loading ? 
 
             <div>
                 
-                <img style={{ maxHeight: '50px'}} src="../loading.gif"/>
-                <h1 className='textoItemDetail textoBlanco'>Cargando...</h1>
+                <img  className='altoLoading' src="../loading.gif"/>
+                <h1 className='textoTeko35 textoBlanco PB15'>Cargando...</h1>
             </div>
             
             

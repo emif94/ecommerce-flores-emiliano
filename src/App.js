@@ -5,12 +5,14 @@ import  ItemCounter  from './components/ItemCounter/ItemCounter';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import Cart from './components/Cart/Cart';
 import  CartContextProvider  from './context/CartContext';
+import CheckoutForm from './components/Cart/CheckoutForm';
+import 'animate.css';
 
 
 const App = () =>{
 
   const startValue = 1
-  const max = 16
+  
  
 
   return (
@@ -31,7 +33,7 @@ const App = () =>{
             <Route 
               exact
               path="/counter"
-              element={<ItemCounter startValue={startValue} max={max}/>} 
+              element={<ItemCounter startValue={startValue}/>} 
             />
             <Route 
               exact
@@ -48,6 +50,12 @@ const App = () =>{
               exact
               path="/cart"
               element={<Cart/>} 
+            />
+
+             <Route 
+              exact
+              path="/checkout"
+              element={<CheckoutForm/>} 
             />
         
         
