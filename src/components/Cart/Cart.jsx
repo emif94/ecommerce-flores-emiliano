@@ -47,7 +47,7 @@ function Cart()  {
                                     <td>{prod.nombre}</td>
                                         <td>{`x${prod.cant}`}</td>
                                         <td>{`$${prod.precio}`}</td>
-                                    <td><span id={`${prod.id}`}onClick={eliminarUnProducto}><img src='../delete-24.png'/></span> </td>   
+                                    <td><span id={`${prod.id}`}onClick={eliminarUnProducto}><img className="animate__animated animate__heartBeat" src='../delete-24.png'/></span> </td>   
                                         
                                                             
 

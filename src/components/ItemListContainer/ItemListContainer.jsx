@@ -18,16 +18,6 @@ const ItemListContainer = ({greeting}) => {
     const {idCategoria} = useParams ()
     const {id} = useParams ()
 
-
-
-// USAR EN ITEMDETAIL-->
-     //useEffect(() => {
-    //     const db = getFirestore()
-    //     const queryDb = doc (db, 'productos', 'IGnXI3IMYYhpyaStAhIH' )
-    //     getDoc (queryDb)
-    //     .then (resp => setProducto ({id: resp.id, ...resp.data()}))
-    //},[idCategoria]) 
-
  
     useEffect(() => {
         if (idCategoria) {
@@ -50,25 +40,8 @@ const ItemListContainer = ({greeting}) => {
          
     },[idCategoria]) 
 
-
-
-   // useEffect(() => {
-   //     if (idCategoria) {
-   //         getFetch
-   //         .then (resp => setProductos(resp.filter(prod => prod.categoria === idCategoria))) 
-   //         .catch (err => console.log(err))
-   //         .finally(()=> setLoading(false))
-   //
-   //     }else {
-   //     getFetch
-   //      .then (resp => setProductos(resp)) 
-   //     .catch (err => console.log(err))
-   //     .finally(()=> setLoading(false))
-   //      }
-   // },[idCategoria])    
         
-    console.log (idCategoria)
-     console.log (productos)
+
 
 
     return (

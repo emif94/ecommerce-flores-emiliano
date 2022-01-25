@@ -19,17 +19,16 @@ const [idOrden, setIdOrden] = useState('')
     const {cartList, borrarCarrito, eliminarUnProducto, sumarTotalCarrito}= useCartContext()
     let totalCarrito = [0]
     
-    console.log(cartList)
+   
 
 
         const handleChange = (e) => {
-        // console.log(e.target.name)
-         //console.log(e.target.value)
+
         setDataForm({
             ...dataForm,
             [e.target.name]: e.target.value
         })
-        console.log(dataForm)
+        
         }
 
 
@@ -60,7 +59,7 @@ const [idOrden, setIdOrden] = useState('')
             
             
         })
-        console.log (orden) 
+        
 
         
         // Generacion de orden
@@ -74,7 +73,7 @@ const [idOrden, setIdOrden] = useState('')
             borrarCarrito()
             
         })
-        console.log (orden) 
+    
 
         
 

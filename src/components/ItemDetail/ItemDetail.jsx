@@ -6,8 +6,8 @@ import {Link} from 'react-router-dom'
 import { useCartContext } from '../../context/CartContext'
 import { Card, Button, Container,Row,Col} from 'react-bootstrap'
 import { CartWidget } from '../CartWidget/CartWidget'
-//import { CartContext } from '../../context/CartContext'
 import '../../styles/styles.css'
+import 'animate.css';
 
 
 
@@ -15,34 +15,18 @@ const ItemDetail = ({productos}) => {
 
     const [irCart, setIrCart] = useState ('comprando');
 
-    const {cartList, agregarCarrito} = useCartContext()
+    const {agregarCarrito} = useCartContext()
 
     const onAdd = (cantidad) => {
-        console.log (cantidad)
         setIrCart ('irCarrito')
         agregarCarrito({...productos, cant:cantidad})
     }
-        console.log (cartList)
     return (
         <div className='fondo PT0'>
 
-            {/*<Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src={productos.foto} />
-                <Card.Body>
-                    <Card.Title>{`${productos.nombre}`}</Card.Title>
-                    <Card.Text>
-                    {`${productos.detalles}`}
-                    </Card.Text>
-                    <Card.Text>
-                    {`$${productos.precio}`}
-                    </Card.Text>
-                    
-                    <Button variant="primary"><Link to= '/cart'><CartWidget/></Link></Button>
-                </Card.Body>
-    </Card>*/}
 
             <Container fluid>
-                <Row className='alinearItemDetail'>
+                <Row className='alinearItemDetail animate__fadeInUp animate__animated '>
                     <Col md={4}>
 
                     <Card  bg='' className='fondo anchoCard'>

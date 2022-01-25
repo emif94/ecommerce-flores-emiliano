@@ -12,7 +12,7 @@ const NavBar = () => {
             <Navbar bg="light" expand="lg" className='fondo P0'>
             <Container fluid className='P0'>
               <Link to='/' className='textoLogo'>
-                <img src='../logo.png' className='logoNavBar animate__animated animate__bounce' />
+                <img src='../logo.png' className='logoNavBar animate__animated animate__fadeInTopLeft' />
                 <div className='textoLogo P0 M0'>HERO COLLECTIBLES</div>
               </Link>
               <Navbar.Toggle aria-controls="navbarScroll"  />
@@ -38,15 +38,6 @@ const NavBar = () => {
                     <Link to= '/cart' className='textoBlanco'><CartWidget/></Link>
                   </Nav.Link>
                 
-              {/*  <Form className="d-flex">
-                  <FormControl
-                    type="search"
-                    placeholder="ej: Batman"
-                    className="me-2"
-                    aria-label="Search"
-                  />
-                  <Button variant="outline-success">Buscar</Button>
-    </Form>*/}
               </Navbar.Collapse>
             </Container>
           </Navbar>            
