@@ -9,19 +9,21 @@ import { CartWidget } from '../CartWidget/CartWidget'
 import '../../styles/styles.css'
 import 'animate.css';
 
-
+//Detalles individuales de cada producto.
 
 const ItemDetail = ({productos}) => {
 
-    const [irCart, setIrCart] = useState ('comprando');
+    const [irCarrito, setIrCarrito] = useState ('comprando');
 
     const {agregarCarrito} = useCartContext()
 
     const onAdd = (cantidad) => {
-        setIrCart ('irCarrito')
+        setIrCarrito ('irCarrito')
         agregarCarrito({...productos, cant:cantidad})
     }
+
     return (
+
         <div className='fondo PT0'>
 
 
@@ -29,18 +31,15 @@ const ItemDetail = ({productos}) => {
                 <Row className='alinearItemDetail animate__fadeInUp animate__animated '>
                     <Col md={4}>
 
-                    <Card  bg='' className='fondo anchoCard'>
-                        <Card.Img variant="top" className='altoFotoCard' src={productos.foto} />
-                        <Card.Body className='fondoInfoDetail'>
-                            <Card.Text className='textoBlanco textoTeko30' >
-                            {`No pierdas la oportunidad de adquirir este increíble colecionable de ${productos.nombre}`}
-                            </Card.Text>
-                            <Button variant="outline-light"><Link to='/' className='textoBlanco'>Más coleccionables...</Link></Button>
-                        </Card.Body>
-                    </Card>
-
-
-
+                        <Card  bg='' className='fondo anchoCard'>
+                            <Card.Img variant="top" className='altoFotoCard' src={productos.foto} />
+                            <Card.Body className='fondoInfoDetail'>
+                                <Card.Text className='textoBlanco textoTeko30' >
+                                {`No pierdas la oportunidad de adquirir este increíble colecionable de ${productos.nombre}`}
+                                </Card.Text>
+                                <Button variant="outline-light"><Link to='/' className='textoBlanco'>Más coleccionables...</Link></Button>
+                            </Card.Body>
+                        </Card>
 
                     </Col>
 
@@ -55,7 +54,8 @@ const ItemDetail = ({productos}) => {
 
                     <Col md={3} className='fondoInfoDetail'>
                         <h4 className='textoBlanco textoTeko35'>{`${productos.stock} unidades disponibles` }</h4>
-                        {irCart === 'comprando' ?
+
+                        {irCarrito === 'comprando' ?
                             (<ItemCounter stock = {productos.stock} onAdd = {onAdd}/>)
                         : 
                         (<Button variant="outline-light"><Link to= '/cart' className='textoBlanco'><CartWidget/></Link></Button>)

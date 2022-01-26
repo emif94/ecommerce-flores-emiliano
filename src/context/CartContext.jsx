@@ -1,7 +1,4 @@
 import { createContext, useState, useContext } from "react";
-import Item from "../components/Item/Item";
-import Cart from "../components/Cart/Cart";
-import ItemDetail from "../components/ItemDetail/ItemDetail";
 
 const CartContext = createContext([])
 
@@ -10,83 +7,64 @@ const CartContext = createContext([])
 
 
 function CartContextProvider({children}) {
-    const [cartList, setCartList] = useState([])
+    const [listaCarrito, setListaCarrito] = useState([])
     
-   
-
-   // function agregarCarrito(productos) {
-
-    //    setCartList([...cartList, productos])
-        
-   // }
+   // Función: agrega los productos al carrito, si el producto ya existe, no lo agrega nuevamente y en su lugar sólo agrega a la cantidad ya existente.
 
    function agregarCarrito(productos) {
 
        
-       const product = cartList.find((item) => item.id === productos.id);
+       const product = listaCarrito.find((item) => item.id === productos.id);
 
        if (!product){
-           setCartList([...cartList, productos]);
+           setListaCarrito([...listaCarrito, productos]);
 
        } else{
             
-            setCartList([...cartList.slice(1), {...productos, cant: product.cant + productos.cant}])
+            setListaCarrito([...listaCarrito.slice(1), {...productos, cant: product.cant + productos.cant}])
 
        }   
 
    }
 
 
+   //Función: Vacía el carrito.
 
     function borrarCarrito (){
-        setCartList([])
+        setListaCarrito([])
 
     }
 
+
+    //Función: Elimina un producto en particular del carrito.
 
     function eliminarUnProducto(e){
-        console.log (e.target.id);
-        let productoABorrar = cartList.findIndex(item => item.id ==e.target.id);
-        cartList.splice(productoABorrar, 1);
+        let productoABorrar = listaCarrito.findIndex(item => item.id ==e.target.id);
+        listaCarrito.splice(productoABorrar, 1);
         
-        setCartList([...cartList])
+        setListaCarrito([...listaCarrito])
 
     }
 
 
+    //Función: Suma el monto total, sumando los productos, teniendo en cuenta la cantidad de cada uno.
     function sumarTotalCarrito(){
-     return cartList.reduce ((acc,item)=>{
+     return listaCarrito.reduce ((acc,item)=>{
        return acc += (item.precio * item.cant)
    },0)
-   //console.log(totalCarrito)
-   console.log(cartList)
+ 
 
 }
-
-   // function cantItemsCartFx(){
-    // cantItemsCart = cartList.reduce ((acc,item)=>{
-    //   return acc += (item.cant)
-  // },0)
-  // console.log(cantItemsCart)
-
-  //  }
-
-
-  
-        
-
    
 
 
     return (
         <CartContext.Provider value={{
-            cartList,
+            listaCarrito,
             agregarCarrito,
             borrarCarrito,
             eliminarUnProducto,
-            sumarTotalCarrito, 
-          //  cantItemsCartFx,
-            
+            sumarTotalCarrito,      
             
             }}>
             {children}

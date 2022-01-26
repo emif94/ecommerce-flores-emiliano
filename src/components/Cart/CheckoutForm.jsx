@@ -1,28 +1,26 @@
 import React from 'react'
 import { Button, Container } from 'react-bootstrap'
 import {useState} from 'react'
-import {  addDoc, collection, doc, getFirestore, Timestamp } from "firebase/firestore"
+import {  addDoc, collection, getFirestore, Timestamp } from "firebase/firestore"
 import { useCartContext } from "../../context/CartContext"
 import {Link} from 'react-router-dom'
 import '../../styles/styles.css'
 
 
 
+// Formulario al cual se llega desde Cart. Paso final para generar la orden y concretar la compra.
 
 function CheckoutForm() {
 
 
-const [idOrden, setIdOrden] = useState('')
+    const [idOrden, setIdOrden] = useState('')
     const [dataForm, setDataForm] = useState({
         nombre:"", email:"", telefono:"", confEmail:""
     })
-    const {cartList, borrarCarrito, eliminarUnProducto, sumarTotalCarrito}= useCartContext()
-    let totalCarrito = [0]
+    const {listaCarrito, borrarCarrito, sumarTotalCarrito}= useCartContext()
     
-   
 
-
-        const handleChange = (e) => {
+    const manejadorOnChange = (e) => {
 
         setDataForm({
             ...dataForm,
@@ -30,56 +28,49 @@ const [idOrden, setIdOrden] = useState('')
         })
         
         }
-
-
  
 
-
-  const generarOrden = (e) =>{
-
-        
+    const generarOrden = (e) =>{
          
         e.preventDefault()    
-
-        
-          
+         
         let orden = {}
-        orden.date = Timestamp.fromDate(new Date())
-       
 
+        orden.fecha = Timestamp.fromDate(new Date())
         orden.comprador = dataForm
         orden.total = sumarTotalCarrito();
+        orden.productos = listaCarrito.map(itemCarrito => {
 
-        orden.productos = cartList.map(cartItem => {
-            const id = cartItem.id;
-            const nombre = cartItem.nombre;
-            const precio = cartItem.precio * cartItem.cant;
+            const id = itemCarrito.id;
+            const nombre = itemCarrito.nombre;
+            const precio = itemCarrito.precio * itemCarrito.cant;
             
             return {id, nombre, precio}  
             
-            
-        })
+                     
+        }) 
         
 
         
-        // Generacion de orden
-         const db = getFirestore()
+    // Generacion de orden.
+        const db = getFirestore()
         const ordenColeccion = collection(db, 'ordenes')
         addDoc(ordenColeccion, orden)
         .then(resp => setIdOrden(resp.id))
         .catch(err => console.log(err))
         .finally(() => { 
-            setDataForm({ name: '', email: '', phone: '' })
+
+            setDataForm({ nombre:"", email:"", telefono:"", confEmail:"" })
             borrarCarrito()
             
         })
     
-
-        
-
+        console.log(orden) //Esta salida por consola, que debería ser eliminada, se deja con fines demostrativos de cómo se generan el resto de los datos de la orden.
     }
 
-    if (idOrden) {
+
+    // Al generarse la orden, se renderiza el siguiente mensaje de compra exitosa:
+    if (idOrden) { 
         return (
             <Container fluid className="fondo PB13">
                 <h2 className='textoBlanco textoTeko45 PB3'>Compra realizada con éxito</h2>
@@ -93,8 +84,9 @@ const [idOrden, setIdOrden] = useState('')
 
   return (
     <>
-      
-
+      {/*Cuando no exista una orden, se piden datos del cliente, con el requisito de confirmar dirección de email. 
+      Al cumplirse este requisito, muestra en pantalla un boton para concretar la compra, el cual será funcional 
+      siempre y cuando los campos del formulario sean completados.*/}
       <div className="fondo">
           <h1 className='textoBlanco textoTeko45 PB3'>Complete sus datos:</h1>
             
@@ -103,7 +95,7 @@ const [idOrden, setIdOrden] = useState('')
 
                             onSubmit={generarOrden} 
                             
-                            onChange={handleChange} 
+                            onChange={manejadorOnChange} 
                         >
                             <input 
                                 type='text' 
@@ -140,9 +132,6 @@ const [idOrden, setIdOrden] = useState('')
                             <span className='textoBlanco textoTeko30'>*Asegúrese de escribir el mismo email en ambos campos</span>}
                             
                         </form>
-            
-
-
 
 
         </div>

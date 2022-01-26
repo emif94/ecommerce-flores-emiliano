@@ -2,29 +2,27 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import {useState , useEffect} from 'react'
 import ItemDetail from "../ItemDetail/ItemDetail";
-import { useCartContext } from "../../context/CartContext"
 import {Link} from 'react-router-dom'
 import { Button } from 'react-bootstrap'
-
 import {doc, getDoc, getFirestore} from 'firebase/firestore'
 import '../../styles/styles.css'
 
+//Contenedor de Item Detail. Muestra los detalles de cada producto (adquiridos de la base de datos).
+//Si el producto no existe, muestra el mensaje correspondiente.
+//Se muestra también ItemCounter, para agregar el producto al Carrito.
 
 const ItemDetailContainer = () => {
     const [productos, setProducto] = useState([])
-    const [loading, setLoading] = useState (true)
-    
+    const [cargando, setCargando] = useState (true)
 
-     const {id} = useParams ()
-
-     
+    const {id} = useParams ()
 
     useEffect(() => {
          const dbDetail = getFirestore()
          const queryDbDetail = doc (dbDetail, 'productos', id )
          getDoc (queryDbDetail)
          .then (resp => setProducto ({id: resp.id, ...resp.data()}))
-         .finally(()=> setLoading(false))
+         .finally(()=> setCargando(false))
     },[id])
     
 
@@ -32,18 +30,14 @@ const ItemDetailContainer = () => {
     return (
         <div>
             
-
-
-            
-            
-            { loading ? 
+            { cargando ? 
 
                 <div className="fondo">
                     
                     <img className='altoLoading' src="../loading.gif"/>
                     <h1 className='textoTeko35 textoBlanco PB15'>Cargando...</h1>
+
                 </div>
-            
             
             :
                
@@ -63,17 +57,9 @@ const ItemDetailContainer = () => {
                     </Button>
                 </div>
 
-
             }
             
              
-            
-            
-            
-            
-            
-        
-            
         </div>
     )
 }

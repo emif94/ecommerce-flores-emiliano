@@ -1,24 +1,24 @@
 
 import { useCartContext } from "../../context/CartContext"
 import {Link} from 'react-router-dom'
-import {Button, Container,Table} from 'react-bootstrap'
+import {Button,Table} from 'react-bootstrap'
 import '../../styles/styles.css'
 
-
+//Carrito
 
 function Cart()  {
     
-    const {cartList, borrarCarrito, eliminarUnProducto, sumarTotalCarrito}= useCartContext()     
+    const {listaCarrito, borrarCarrito, eliminarUnProducto, sumarTotalCarrito}= useCartContext()     
    
     return (
-        <div className="fondo">
-            
+        <div className="fondo" >
 
             <div>
 
-                {cartList.length === 0 ?
+                {listaCarrito.length === 0 ? //Dependiendo de si el Carrito está vacío, o no, nos dará dos resultados (1 y 2):
 
-                    <div  className="PB13 PT8">
+                // Resultado 1: Carrito vacío, renderiza botón para buscar productos.
+                    <div  className="PB13 PT8"> 
 
                         <h1 className='textoBlanco textoTeko45 PB5'>Su carrito está vacío</h1>
                         <Link to='/'><Button variant="outline-light"><span className="textoTeko30">Mirá nuestros productos!</span></Button></Link>
@@ -26,8 +26,9 @@ function Cart()  {
 
                     :                   
 
-                    <div className="PB13 PT8">  
-                    <span className='textoBlanco textoTeko55'> RESUMEN DE CARRITO </span>                
+                //Resultado 2: Carrito con producto/s, renderiza la lista de productos y botones para finalizar la compra y para seguir agregando productos al mismo.    
+                    <div className="PB13 PT8" >  
+                        <h1 className='textoBlanco textoTeko55'> RESUMEN DE CARRITO </h1>                
 
                         <Table striped bordered hover variant="dark" className="anchoTablaCart">
                             
@@ -41,29 +42,26 @@ function Cart()  {
                             </thead> 
 
                             <tbody>
-                                {cartList.map(prod=> 
+                                
+                                {listaCarrito.map(prod=>  
+                                
 
-                                <tr>
+                                <tr  key = {prod.id}>
                                     <td>{prod.nombre}</td>
                                         <td>{`x${prod.cant}`}</td>
                                         <td>{`$${prod.precio}`}</td>
-                                    <td><span id={`${prod.id}`}onClick={eliminarUnProducto}><img className="animate__animated animate__heartBeat" src='../delete-24.png'/></span> </td>   
-                                        
-                                                            
-
+                                    <td><span id={`${prod.id}`}onClick={eliminarUnProducto}><img className="animate__animated animate__heartBeat" src='../delete-24.png'/></span> </td>      
                                 </tr>)}
+                                
 
-                                <tr>
-                                    
-                                    
+                                <tr>                                    
                                     <td colSpan={2}>Total</td>
                                     <td colSpan={2}>{`$${sumarTotalCarrito()}`} </td>
                                 </tr>
-                                
-
                             
                             </tbody>
-                            </Table>
+                            
+                        </Table>
 
                             <Link to= '/checkout' className="M1"><Button variant="outline-light">Finalizar Compra</Button></Link>
 

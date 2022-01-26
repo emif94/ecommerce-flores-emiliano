@@ -73,6 +73,15 @@
 
 }
 
+.textoContacto{
+    margin-top:7px;
+    margin-right: 15px;
+}
+
+.textoContacto:hover{
+    color:white;
+}
+
 /*MARGENES Y PADDINGS-------------------------------------->*/
 
 .M0{

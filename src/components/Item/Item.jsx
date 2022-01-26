@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { Card, Button} from 'react-bootstrap'
 import '../../styles/styles.css'
 
+//Estructura de la tarjeta de cada Item, que será cargado junto a los demás Items en ItemListContainer.
 
 function Item ({prod}) {
     return (
@@ -10,15 +11,16 @@ function Item ({prod}) {
             key = {prod.id}
             
         >
-            <div>                
+            <div>           
             
                 <Card className='MB3 anchoCard fondo PT0'>
                     <Card.Img variant="top" src={prod.foto} className='altoFotoCard'/>
                     <Card.Body className='fondoInfoDetail'>
                         <Card.Text className='textoBlanco textoTeko35'>{prod.nombre}</Card.Text>
                         <Card.Text  className='textoBlanco textoTeko30 '>
-                        Tipo: {prod.categoria.toUpperCase()}<br/>
-                       <span className='textoBlanco textoTeko35 '>${prod.precio}</span> 
+
+                            Tipo: {prod.categoria.toUpperCase()}<br/>
+                            <span className='textoBlanco textoTeko35 '>${prod.precio}</span> 
 
                         </Card.Text>
                         <Button variant="outline-light">

@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import { Navbar, Container, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap'
+import { Navbar, Container, Nav, NavDropdown} from 'react-bootstrap'
 import { CartWidget } from '../CartWidget/CartWidget'
 import '../../styles/styles.css'
 import 'animate.css';
@@ -9,9 +9,9 @@ import 'animate.css';
 const NavBar = () => {
     return (
         <div>
-            <Navbar bg="light" expand="lg" className='fondo P0'>
+          <Navbar bg="light" expand="lg" className='fondo P0'>
             <Container fluid className='P0'>
-              <Link to='/' className='textoLogo'>
+              <Link to='/' className='textoLogo' id="RouterNavLink">
                 <img src='../logo.png' className='logoNavBar animate__animated animate__fadeInTopLeft' />
                 <div className='textoLogo P0 M0'>HERO COLLECTIBLES</div>
               </Link>
@@ -27,16 +27,16 @@ const NavBar = () => {
                     <NavDropdown.Item className='fondo'><Link to="categoria/lego" className='textoNav'>Lego</Link></NavDropdown.Item>
                     <NavDropdown.Item className='fondo'><Link to="categoria/estatuas" className='textoNav'>Estatuas</Link></NavDropdown.Item>
                   </NavDropdown>
-                  <Nav.Link >
-                    <Link to="contacto" className='textoNav'>CONTACTO</Link>
-                  </Nav.Link>
+                  <Link to="contacto" className='textoNav textoContacto'>                    
+                    CONTACTO
+                  </Link>
                   
                   
                 </Nav>
 
-                <Nav.Link >
-                    <Link to= '/cart' className='textoBlanco'><CartWidget/></Link>
-                  </Nav.Link>
+                <Link  to= '/cart' className='textoBlanco'>
+                    <CartWidget/>
+                </Link>
                 
               </Navbar.Collapse>
             </Container>
