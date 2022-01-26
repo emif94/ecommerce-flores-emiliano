@@ -9,7 +9,7 @@ Habiendo gran variedad de tiendas online, se quiso ahondar un poco más en un se
 Hoy en día es difícil encontrar algún rubro de productos que no tenga tiendas e-commerce por doquier, pero en el mercado encontramos pocas (en relación a otras áreas) dedicadas a coleccionables de superhéroes y a los propios coleccionistas.
 ## :computer: Demo
 
-[Hero Collectibles ](https://stoic-panini-b2d843.netlify.app/)
+[Hero Collectibles ](https://blissful-hawking-8cee6e.netlify.app/)
 
 
 ## :pencil: Contribuciones
