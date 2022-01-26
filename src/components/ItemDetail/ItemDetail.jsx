@@ -43,7 +43,7 @@ const ItemDetail = ({productos}) => {
 
                     </Col>
 
-                    <Col md={4} className='fondoInfoDetail'>
+                    <Col md={3} className='fondoInfoDetail'>
 
                         <h1 className='textoBlanco textoTeko35'>{`${productos.nombre}`}</h1>
                         <h3 className='textoBlanco textoTeko35'>{`$${productos.precio}`}</h3>
